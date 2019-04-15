@@ -118,4 +118,3 @@ if __name__ == '__main__':
     # python main.py --dataset original_images --input_height=128 --output_height=128
 
     tf.app.run()
-

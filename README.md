@@ -5,6 +5,8 @@ dataset to compare the results. The quality of the generated  image is measured 
 
 # Preporcessing
 I cannot just use center_crop to get my images for the position of dog in Stanford Dog Dataset is not static and just crop will get very bad result.
+face extracting uses dlib which is used for human face extraction so this way is not able to crop dog faces for every image. It can only be a supplement
+to base images.
 
 # Prerequisite
 * Anaconda Python 3.7
@@ -15,6 +17,17 @@ conda activate tensorflow_gpuenv
 ```
 It should contains most necessary packages like SciPy, NumPy and Pillow
 * image_slicer
+* dlib(to do preprocessing, result is in data folder so it is optional)
+It is hard to install dlib on Windows so I create a new environment for dlib
+since it will downgrade my python and tensorflow and it is only use for face extracting, it is better to put it in
+another environment.
+```
+conda create --name dlib_face
+conda install -c menpo dlib
+conda activate dlib_face
+```
+
+
 * (Optional) moviepy
 
 # Usage

@@ -133,7 +133,7 @@ def main(files):
 
 if __name__ == '__main__':
     # edit and run this command when need to split the 8*8 image to 64 images
-    # filenames = glob.glob(os.path.join('./data/original_images_inception_score', '*.*'))
+    # filenames = glob.glob(os.path.join('./inception_score/original_images_inception_score', '*.*'))
     # split_images(filenames)
 
     # get inception score
@@ -141,5 +141,5 @@ if __name__ == '__main__':
         _init_inception()
 
     # change name to directory of result images
-    filenames = glob.glob(os.path.join('./data/original_images_inception_score', '*.*'))
+    filenames = glob.glob(os.path.join('./inception_score/original_images_inception_score', '*.*'))
     main(filenames)

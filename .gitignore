@@ -4,5 +4,6 @@
 # Python
 __pycache__/
 
-# log
+# log & samples
 logs/
+samples/
