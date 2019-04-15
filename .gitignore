@@ -1,2 +1,8 @@
-#IDE
+# IDE
 .idea/
+
+# Python
+__pycache__/
+
+# log
+logs/
