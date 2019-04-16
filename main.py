@@ -14,7 +14,7 @@ import tensorflow as tf
 
 flags = tf.app.flags
 # set it high to let new model stored (per 500 iterations)
-flags.DEFINE_integer("epoch", 55, "Epoch to train [55]")
+flags.DEFINE_integer("epoch", 56, "Epoch to train [56]")
 flags.DEFINE_float("learning_rate", 0.0002, "Learning rate of for adam [0.0002]")
 flags.DEFINE_float("beta1", 0.5, "Momentum term of adam [0.5]")
 flags.DEFINE_float("train_size", np.inf, "The size of train images [np.inf]")
@@ -105,14 +105,17 @@ def main(_):
         #                 [dcgan.h4_w, dcgan.h4_b, None])
 
         # Below is codes for visualization
-        OPTION = 0
+        OPTION = 1
         visualize(sess, dcgan, FLAGS, OPTION)
 
 
 if __name__ == '__main__':
+    # I suggest use terminal to run main.py rather than Pycharm, PyCharm has some issue when run _sys.exit when
+    #  tf.app.run is finished (perhaps because of virtual env setting but terminal will not have this issue)
+
     # training
-    # epoch use 440, good to be multiple of 55 because it only update once per 55 epoch
-    # python main.py --dataset original_images --input_height=128 --output_height=128 --train --epoch=440
+    # epoch good to be multiple of 56 because it only update once per 56 epoch
+    # python main.py --dataset original_images --input_height=128 --output_height=128 --train --epoch=448
 
     # generate test result img (use 10 or enough number of them in getting Inception Score)
     # python main.py --dataset original_images --input_height=128 --output_height=128

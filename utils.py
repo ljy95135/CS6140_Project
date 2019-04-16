@@ -192,7 +192,6 @@ def make_gif(images, fname, duration=2, true_image=False):
 def visualize(sess, dcgan, config, option):
     image_frame_dim = int(math.ceil(config.batch_size ** .5))
     if option == 0:
-        # get 10 images to use in Inception Score
         for i in range(10):
             z_sample = np.random.uniform(-0.5, 0.5, size=(config.batch_size, dcgan.z_dim))
             samples = sess.run(dcgan.sampler, feed_dict={dcgan.z: z_sample})
@@ -200,7 +199,9 @@ def visualize(sess, dcgan, config, option):
                         './samples/test_%s.png' % datetime.now().strftime("%Y-%m-%d-%H-%M-%f"))
     elif option == 1:
         values = np.arange(0, 1, 1. / config.batch_size)
-        for idx in xrange(dcgan.z_dim):
+        # get 10 images to use in Inception Score
+        for idx in xrange(10):  # 10 image is enough
+            # for idx in xrange(dcgan.z_dim):
             print(" [*] %d" % idx)
             z_sample = np.random.uniform(-1, 1, size=(config.batch_size, dcgan.z_dim))
             for kdx, z in enumerate(z_sample):
