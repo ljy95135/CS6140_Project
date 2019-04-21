@@ -132,7 +132,7 @@ def main(files):
 
 
 if __name__ == '__main__':
-    # edit and run this command when need to split the 8*8 image to 64 images
+    # # edit and run this command when need to split the 8*8 image to 64 images
     # filenames = glob.glob(os.path.join('./inception_score/original_images_inception_score', '*.*'))
     # split_images(filenames)
 
