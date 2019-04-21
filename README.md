@@ -2,7 +2,7 @@
 code zip file only contains source code without dataset and checkpoint and other results.
 Please go to https://github.com/ljy95135/CS6140_Project to download it.
 
-You can only download some dataset in data folder and train GAN or download the lastest checkpoint to generate sampels.
+You can only download some dataset in data folder and train GAN or download the latest checkpoint to generate samples.
 
 This project is for course 6140 Machine Learning. It uses Deep Convolutional Generative Adversarial Network (DCGAN) to generate dog images.
 The dataset chosen 3 breeds of dogs from Stanford Dog Dataset. Different pre-processing is using to generate more training images and have different
