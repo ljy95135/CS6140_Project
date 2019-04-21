@@ -272,16 +272,25 @@ class DCGAN(object):
                     # Update G network
                     _, summary_str = self.sess.run([g_optim, self.g_sum],
                                                    feed_dict={self.z: batch_z})
-                    self.writer.add_summary(summary_str, counter)
+                    # self.writer.add_summary(summary_str, counter)
 
                     # Run g_optim twice to make sure that d_loss does not go to zero (different from paper)
                     _, summary_str = self.sess.run([g_optim, self.g_sum],
                                                    feed_dict={self.z: batch_z})
-                    self.writer.add_summary(summary_str, counter)
+                    # self.writer.add_summary(summary_str, counter)
 
                     errD_fake = self.d_loss_fake.eval({self.z: batch_z})
                     errD_real = self.d_loss_real.eval({self.inputs: batch_images})
                     errG = self.g_loss.eval({self.z: batch_z})
+
+                    if errG - (errD_fake + errD_real) > 1:
+                        print('try to train generator more because discriminator is too strong')
+                        _, summary_str = self.sess.run([g_optim, self.g_sum], feed_dict={self.z: batch_z})
+                        errD_fake = self.d_loss_fake.eval({self.z: batch_z})
+                        errD_real = self.d_loss_real.eval({self.inputs: batch_images})
+                        errG = self.g_loss.eval({self.z: batch_z})
+                        print("EXTRA: dfake_loss: %.8f, dreal_loss: %.8f, g_loss: %.8f" % (errD_fake, errD_real, errG))
+                    self.writer.add_summary(summary_str, counter)
 
                 counter += 1
                 print("Epoch: [%2d/%2d] [%4d/%4d] time: %4.4f, d_loss: %.8f, g_loss: %.8f" \

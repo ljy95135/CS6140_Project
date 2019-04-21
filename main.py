@@ -14,7 +14,7 @@ import tensorflow as tf
 
 flags = tf.app.flags
 # set it high to let new model stored (per 500 iterations)
-flags.DEFINE_integer("epoch", 84, "Epoch to train [56]")
+flags.DEFINE_integer("epoch", 56, "Epoch to train [56]")
 flags.DEFINE_float("learning_rate", 0.0002, "Learning rate of for adam [0.0002]")
 flags.DEFINE_float("beta1", 0.5, "Momentum term of adam [0.5]")
 flags.DEFINE_float("train_size", np.inf, "The size of train images [np.inf]")
